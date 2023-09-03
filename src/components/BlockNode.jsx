@@ -10,16 +10,31 @@ import {
     CardHeader,
     Heading,
     Box,
+    Wrap,
+    WrapItem,
 } from "@chakra-ui/react";
+import { FiInfo } from "react-icons/fi";
 
 const BlockNode = ({ data }) => {
-    const nodeId = useNodeId();
-
     return (
         <>
             <Card variant="outline">
                 <CardHeader>
                     <Heading size="md">Block</Heading>
+                    <Tooltip
+                        placement="right-start"
+                        hasArrow
+                        label="The body of a block contains transaction records. 
+                                Storing these records safely is one of the priorities of the blockchain. 
+                                But to be able to function in a blockchain, a block also needs a few other elements. 
+                                Cryptocurrencies earned their name because they rely heavily on cryptography. 
+                                In the case of blocks, the cryptographic principle used is called the hash function. 
+                                A string of symbols, called a hash, is determined through a hashing algorithm. 
+                                This algorithm takes all the data in a block and turns it into a unique string of symbols that serve as the block’s ID."
+                        fontSize="md"
+                    >
+                        <FiInfo />
+                    </Tooltip>
                 </CardHeader>
                 <CardBody>
                     <Stack spacing="16px">

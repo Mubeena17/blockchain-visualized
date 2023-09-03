@@ -14,13 +14,10 @@ import {
 import { CopyIcon } from "@chakra-ui/icons";
 import { useCallback, useState } from "react";
 
-import elliptic from "elliptic";
-let ec = new elliptic.ec("secp256k1");
-
 /*
  pubKey, transfer
 */
-const WalletNode = ({ id, data }) => {
+const WalletNode = ({ data }) => {
     const [transactionAmount, setTransactionAmount] = useState("");
     const [toAddress, setToAddress] = useState("");
     const onChange = useCallback((evt) => {
