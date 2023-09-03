@@ -13,8 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 const MinerNode = ({ data }) => {
-    const nodeId = useNodeId();
-
     return (
         <>
             <Card variant="outline">
@@ -25,7 +23,7 @@ const MinerNode = ({ data }) => {
                     <Stack spacing="16px">
                         <Box>
                             <Text fontSize="xs">Hash</Text>
-                            <Tag size="md" variant="solid" colorScheme="green">
+                            <Tag size="md" variant="solid" colorScheme="red">
                                 <TagLabel>{data.hash}</TagLabel>
                             </Tag>
                         </Box>

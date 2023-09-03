@@ -31,17 +31,26 @@ const useCryptoNodes = (blocks, wallets, miningData) => {
                     };
                 });
 
-            const minerNode = {
-                id: `miner`,
-                position: {
-                    x: blocks.length * 400,
-                    y: 50,
-                },
-                data: miningData,
-                type: "minerNode",
-                height: 400,
-                width: 100,
-            };
+            const existingMinerNodeIndex = nodes.findIndex(
+                (node) => node.type === "minerNode"
+            );
+            let minerNode;
+            if (existingMinerNodeIndex !== -1) {
+                nodes[existingMinerNodeIndex].data = miningData;
+                minerNode = nodes[existingMinerNodeIndex];
+            } else {
+                minerNode = {
+                    id: `miner`,
+                    position: {
+                        x: blocks.length * 400,
+                        y: 50,
+                    },
+                    data: miningData,
+                    type: "minerNode",
+                    height: 400,
+                    width: 100,
+                };
+            }
 
             const newWallets = wallets
                 .filter(
