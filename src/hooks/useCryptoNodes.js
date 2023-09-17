@@ -21,7 +21,7 @@ const useCryptoNodes = (blocks, wallets, miningData) => {
                     return {
                         id: `block-${block.hash}`,
                         position: {
-                            x: 400 + (existingBlockHash.length + index) * 400,
+                            x: (existingBlockHash.length + index) * 400,
                             y: 50,
                         },
                         data: block,
@@ -37,7 +37,13 @@ const useCryptoNodes = (blocks, wallets, miningData) => {
             let minerNode;
             if (existingMinerNodeIndex !== -1) {
                 nodes[existingMinerNodeIndex].data = miningData;
-                minerNode = nodes[existingMinerNodeIndex];
+                minerNode = {
+                    ...nodes[existingMinerNodeIndex],
+                    position: {
+                        x: blocks.length * 400,
+                        y: 50,
+                    },
+                };
             } else {
                 minerNode = {
                     id: `miner`,
