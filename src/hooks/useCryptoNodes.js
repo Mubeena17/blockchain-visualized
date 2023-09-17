@@ -21,7 +21,7 @@ const useCryptoNodes = (blocks, wallets, miningData) => {
                     return {
                         id: `block-${block.hash}`,
                         position: {
-                            x: (existingBlockHash.length + index) * 400,
+                            x: 400 + (existingBlockHash.length + index) * 400,
                             y: 50,
                         },
                         data: block,
