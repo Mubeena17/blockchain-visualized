@@ -24,6 +24,8 @@ import useWallets from "./hooks/useWallets.js";
 import useMiner from "./hooks/useMiner.js";
 import useCryptoNodes from "./hooks/useCryptoNodes.js";
 import MinerNode from "./components/MinerNode.jsx";
+import Nav from "./components/NavBar.tsx";
+import theme from "./theme.js";
 
 const nodeTypes = {
     blockNode: BlockNode,
@@ -46,7 +48,7 @@ export default function App() {
     );
 
     return (
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
             <div style={{ width: "100vw", height: "100vh" }}>
                 <ReactFlowProvider>
                     <ReactFlow
@@ -59,29 +61,18 @@ export default function App() {
                     >
                         <Panel position="top-left">
                             <Flex align="center">
-                                <Heading as="h2" size="xl">
-                                    Crypto{" "}
-                                    <Highlight
-                                        query="spotlight"
-                                        styles={{
-                                            px: "2",
-                                            py: "1",
-                                            rounded: "full",
-                                            bg: "red.100",
-                                        }}
-                                    >
-                                        Playground
-                                    </Highlight>
-                                </Heading>
-
-                                <Button
-                                    colorScheme="teal"
-                                    size="sm"
-                                    onClick={generateWallet}
-                                    marginLeft="16px"
-                                >
-                                    Add Wallet
-                                </Button>
+                                <Nav
+                                    menuItems={[
+                                        <Button
+                                            colorScheme="brand"
+                                            size="md"
+                                            variant="outline"
+                                            onClick={generateWallet}
+                                        >
+                                            Add Wallet
+                                        </Button>,
+                                    ]}
+                                />
                             </Flex>
                         </Panel>
                         <Panel position="top-right">
